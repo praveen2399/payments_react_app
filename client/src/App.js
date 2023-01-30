@@ -3,10 +3,12 @@ import React, { Component, useState, useEffect } from 'react';
 import './usb.css';
 import { render } from 'react-dom';
 import { getInvoiceItems  } from './util.js';
+import 'react-phone-number-input/style.css'
 import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
 import { Button } from '@fluentui/react-northstar';
 import { PlayIcon } from '@fluentui/react-icons-northstar';
 import { LineChart, LineChartPoint, AreaChart } from '@fluentui/react-charting';
+import PhoneInput, { formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber } from 'react-phone-number-input'
 
 var inv_total = 0;
 var invid = 0;
@@ -33,6 +35,10 @@ function InvoiceDetails() {
       }
     });
   };
+
+  const handlePhoneNumber = () => {
+    navigate('/phoneNumber')
+  }
 
   var [data, setData] = useState([]);
   useEffect(() => {
@@ -102,6 +108,7 @@ return (
 <div>
 
 <Button disabled={pstat === "Paid"} onClick={handleClick} icon={<PlayIcon />} content="Click To Pay" Position='after' primary />
+<Button onClick={handlePhoneNumber} icon={<PlayIcon />} content="To phonenumber" Position='after' primary />
 </div>
 </div>
 
@@ -232,15 +239,47 @@ function Dashboard() {
   );
 }
 
+function PhoneNumber(){
+  // `value` will be the parsed phone number in E.164 format.
+   // Example: "+12133734253".
+const [value, setValue] = useState()
+const navigate = useNavigate();
+const handleSubmit = () => {
+//make a call to the backend to get the customer records and show that response in the customer table
+
+navigate("/customerIssues", { replace: true });
+}
+return(
+ <>
+ <h1>Customer phone number verification</h1>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+<PhoneInput
+    placeholder="Enter customer phone number"
+    defaultCountry="US"
+    value={value}
+    onChange={setValue}
+    error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
+<Button onClick={handleSubmit}>Submit</Button>    
+</> )
+ } 
+
+function CustomerIssues(){
+
+}
+
 function App(){
   return(
     <Routes>
       <Route path="/" element={<InvoiceDetails />} exact/>
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/phoneNumber" element={<PhoneNumber />} />
+      <Route path="/customerIssues" element={<CustomerIssues/>} />
     </Routes>
   );
 }
-
 
 export default App;
