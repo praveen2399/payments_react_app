@@ -1,6 +1,6 @@
 import './App.css'
 import React, { Component, useState, useEffect } from 'react'
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
 import SelectTableComponent from "./select-table.component"
 import Dealer from './Dealer'
 import LandingPage from './LandingPage'
@@ -97,16 +97,16 @@ return (
     </tbody>
 </table>
 <div className="item">            
-    <p>Total Amount &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: 
-        &nbsp<span style={{ fontColor: "blue" }}> {inv_total} <label id="txt_total"></label></span></p>
+    <p>Total Amount &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+        &nbsp;<span style={{ fontColor: "blue" }}> {inv_total} <label id="txt_total"></label></span></p>
 </div>
 
 <div className="item">            
-    <p>Payment Status &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: 
-        &nbsp<span style={{ fontColor: "blue" }}> <label id="txt_status">{pstat}</label></span></p>
+    <p>Payment Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+        &nbsp;<span style={{ fontColor: "blue" }}> <label id="txt_status">{pstat}</label></span></p>
 </div>
 <div>
-<p>Payment Confirmation ID : &nbsp<span style={{ fontColor: "blue" }}>{btid}<label id="txt_btid"></label></span></p>
+<p>Payment Confirmation ID : &nbsp;<span style={{ fontColor: "blue" }}>{btid}<label id="txt_btid"></label></span></p>
 </div>
 
 <div>
@@ -165,28 +165,28 @@ function ConfirmPay(){
         <h1>Confirm Payment</h1>
       </div>
       <div className="item" >
-        <p><span style={{ width: "40%", float: "left" }}> Invoice ID:&nbsp&nbsp
+        <p><span style={{ width: "40%", float: "left" }}> Invoice ID:&nbsp;&nbsp;
         </span></p></div>
       <div className="item" >
       <p><span style={{ width: "60%", float: "right" }}>
           <label id="txt_tid">{invid}</label></span></p></div>
 
       <div className="item">
-        <p><span style={{ width: "40%", float: "left" }}> Invoice Date:&nbsp&nbsp
+        <p><span style={{ width: "40%", float: "left" }}> Invoice Date:&nbsp;&nbsp;
         </span></p></div>
       <div class="item" >
       <p><span style={{ width: "60%", float: "right" }}>
             <label id="txt_invdt">{invdt}</label></span></p></div>
       
       <div class="item" >            
-        <p><span style={{ width: "40%", float: "left" }}>Vendor:&nbsp&nbsp
+        <p><span style={{ width: "40%", float: "left" }}>Vendor:&nbsp;&nbsp;
         </span></p></div>
       <div class="item" >
       <p><span style={{ width: "60%", float: "right" }}>
         <label id="txt_vendor">{vendor}</label></span></p></div>
 
       <div class="item" >
-        <p> <span style={{ width: "40%", float: "left" }}> Amount:&nbsp&nbsp
+        <p> <span style={{ width: "40%", float: "left" }}> Amount:&nbsp;&nbsp;
         </span></p></div>
       <div class="item">  
         <p><span style={{ width: "60%", float: "right" }}>
@@ -195,7 +195,7 @@ function ConfirmPay(){
       
       <div class="item" >            
           <p><span style={{ width: "40%", float: "left" }}> 
-          Payment Status:&nbsp&nbsp</span></p></div>
+          Payment Status:&nbsp;&nbsp;</span></p></div>
       <div class="item" >
       <p><span style={{ width: "60%", float: "right" }}>
         <label id="txt_status">{pstat}</label></span></p>
@@ -283,6 +283,8 @@ function App(){
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
       <Route path="/customerIssues" element={<CustomerIssues/>} />
+      <Route path="/Dealer" element={<Dealer />} />
+      <Route path="/LandingPage" element={<LandingPage />} />
       <Route path="/Dealer" element={<Dealer />} />
       <Route path="/LandingPage" element={<LandingPage />} />
     </Routes>
