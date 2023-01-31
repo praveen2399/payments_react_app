@@ -7,7 +7,7 @@
   "scripts": {
     "debug": "nodemon --inspect server/server.js",
     "loadData": "node falconDB/loadData.js",
-    "server": "nodemon server/server.js",
+    "server": "nodemon server/payments.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\"  \"npm run client\"",
     "package": "node manifest/makePackage.js"
@@ -27,7 +27,7 @@
     "concurrently": "^7.6.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "FileSync": "^1.0.1",
     "http-proxy-middleware": "^2.0.6",
     "lowdb": "^3.0.0",
@@ -43,7 +43,7 @@
     "request": "^2.88.0",
     "sqlite": "^4.1.2",
     "sqlite-async": "^1.2.0",
-    "sqlite3": "^5.1.2",
+    "sqlite3": "^5.1.4",
     "unirest": "^0.6.0",
     "web-vitals": "^2.1.4"
   },

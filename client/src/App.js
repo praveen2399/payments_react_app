@@ -10,6 +10,7 @@ import './App.css';
 import SelectTableComponent from "./select-table.component";
 import './usb.css';
 import { getInvoiceItems } from './util.js';
+import LandingPage from './LandingPage.jsx';
 
 var inv_total = 0;
 var invid = 0;
@@ -44,6 +45,12 @@ function InvoiceDetails() {
   const handleCustomerIssues = () => {
     navigate('/customerIssues')
   }
+
+  const handleLandingPage = () => {
+    navigate('/landing')
+  }
+
+  
 
   var [data, setData] = useState([]);
   useEffect(() => {
@@ -115,6 +122,8 @@ return (
 <Button disabled={pstat === "Paid"} onClick={handleClick} icon={<PlayIcon />} content="Click To Pay" Position='after' primary />
 <Button onClick={handlePhoneNumber} icon={<PlayIcon />} content="To phonenumber" Position='after' primary />
 <Button onClick={handleCustomerIssues} icon={<PlayIcon />} content="To customer issues page" Position='after' primary />
+<Button onClick={handleLandingPage} icon={<PlayIcon />} content="Landing page" Position='after' primary />
+
 </div>
 </div>
 
@@ -285,6 +294,7 @@ function App(){
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
       <Route path="/customerIssues" element={<SelectTableComponent/>} />
+      <Route path="/landing" element={<LandingPage/>} />
     </Routes>
   );
 }
