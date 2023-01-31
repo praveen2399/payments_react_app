@@ -1,16 +1,15 @@
-import './App.css';
-import React, { Component, useState, useEffect } from 'react'
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import SelectTableComponent from "./select-table.component"
-import './usb.css';
-import { render } from 'react-dom';
-import { getInvoiceItems  } from './util.js';
-import 'react-phone-number-input/style.css'
-import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
-import { Button } from '@fluentui/react-northstar';
+import { LineChart } from '@fluentui/react-charting';
 import { PlayIcon } from '@fluentui/react-icons-northstar';
-import { LineChart, LineChartPoint, AreaChart } from '@fluentui/react-charting';
-import PhoneInput, { formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber } from 'react-phone-number-input'
+import { Button } from '@fluentui/react-northstar';
+import React, { useEffect, useState } from 'react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import SelectTableComponent from "./select-table.component";
+import './usb.css';
+import { getInvoiceItems } from './util.js';
 
 var inv_total = 0;
 var invid = 0;
