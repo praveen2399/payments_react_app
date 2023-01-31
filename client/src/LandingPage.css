@@ -1,0 +1,12 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content{
+    padding: 40px 20px;
+    width: 600px;
+    margin: 0 auto;
+}
+input {
+    width: 50px;
+}

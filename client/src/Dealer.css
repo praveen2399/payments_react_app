@@ -1,0 +1,45 @@
+.conatiner{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content{
+    padding: 40px 0px;
+    width: 1000px;
+    margin: 0 auto;
+}
+form {
+    width: 100%;
+    padding: 20px;
+}
+.phone-number {
+    width: 180px;
+    margin: 0 10px;
+}
+.center {
+    margin: 0 auto;
+    max-width: 400px;
+}
+.form-inline {
+    margin: 20px;
+}
+.form-inline label
+{
+    padding-right: 10px;
+}
+.issue {
+    width: 300px;
+}
+.amount {
+    width: 90px;
+}
+td {
+    padding: 0 30px;
+    vertical-align: bottom;
+}
+
+table {
+    margin-bottom: 30px;
+}
+p{
+    line-height: 0;
+}
