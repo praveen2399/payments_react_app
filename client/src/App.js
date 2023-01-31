@@ -1,5 +1,7 @@
 import './App.css';
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import SelectTableComponent from "./select-table.component"
 import './usb.css';
 import { render } from 'react-dom';
 import { getInvoiceItems  } from './util.js';
@@ -111,6 +113,7 @@ return (
 <Button onClick={handlePhoneNumber} icon={<PlayIcon />} content="To phonenumber" Position='after' primary />
 </div>
 </div>
+<SelectTableComponent />
 
 </>
 
