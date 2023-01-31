@@ -7,7 +7,9 @@ import 'react-phone-number-input/style.css';
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import SelectTableComponent from "./select-table.component";
+import CustomerIssues from "./CustomerIssues";
+import LandingPage from './LandingPage'
+import Dealer from './Dealer'
 import './usb.css';
 import { getInvoiceItems } from './util.js';
 
@@ -273,7 +275,7 @@ return(
 </> )
  } 
 
-function CustomerIssues(){
+function customerIssues(){
 
 }
 
@@ -284,7 +286,9 @@ function App(){
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
-      <Route path="/customerIssues" element={<SelectTableComponent/>} />
+      <Route path="/customerIssues" element={<CustomerIssues/>} />
+      <Route path="/landing" element={<LandingPage/>} />
+      <Route path="/dealer" element={<Dealer/>} />
     </Routes>
   );
 }
