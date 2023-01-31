@@ -42,6 +42,10 @@ function InvoiceDetails() {
     navigate('/phoneNumber')
   }
 
+  const handleCustomerIssues = () => {
+    navigate('/customerIssues')
+  }
+
   var [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData(){
@@ -111,9 +115,10 @@ return (
 
 <Button disabled={pstat === "Paid"} onClick={handleClick} icon={<PlayIcon />} content="Click To Pay" Position='after' primary />
 <Button onClick={handlePhoneNumber} icon={<PlayIcon />} content="To phonenumber" Position='after' primary />
+<Button onClick={handleCustomerIssues} icon={<PlayIcon />} content="To customer issues page" Position='after' primary />
 </div>
 </div>
-<SelectTableComponent />
+
 
 </>
 
@@ -280,7 +285,7 @@ function App(){
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
-      <Route path="/customerIssues" element={<CustomerIssues/>} />
+      <Route path="/customerIssues" element={<SelectTableComponent/>} />
     </Routes>
   );
 }

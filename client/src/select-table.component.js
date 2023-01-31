@@ -99,8 +99,11 @@ class SelectTableComponent extends React.Component {
   render() {
     return (
       <div className="container">
+      <h1> Customer Vehicle Issues</h1><br/><br/><br/><br/>
         <div className="row">
+        
           <div className="col-md-12">
+          
             <table className="table">
               <thead>
                 <tr>
