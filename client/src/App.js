@@ -1,31 +1,29 @@
-import './App.css'
+import './App.css';
 import React, { Component, useState, useEffect } from 'react'
-import "../../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import SelectTableComponent from "./select-table.component"
-import Dealer from './Dealer'
-import LandingPage from './LandingPage'
-import './usb.css'
-import { render } from 'react-dom'
-import { getInvoiceItems  } from './util.js'
+import './usb.css';
+import { render } from 'react-dom';
+import { getInvoiceItems  } from './util.js';
 import 'react-phone-number-input/style.css'
-import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom"
-import { Button } from '@fluentui/react-northstar'
-import { PlayIcon } from '@fluentui/react-icons-northstar'
-import { LineChart, LineChartPoint, AreaChart } from '@fluentui/react-charting'
+import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
+import { Button } from '@fluentui/react-northstar';
+import { PlayIcon } from '@fluentui/react-icons-northstar';
+import { LineChart, LineChartPoint, AreaChart } from '@fluentui/react-charting';
 import PhoneInput, { formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber } from 'react-phone-number-input'
 
-var inv_total = 0
-var invid = 0
-var invdt = ''
-var vendor = ''
-var pstat = ''
-var result = {}
-var btid = ''
+var inv_total = 0;
+var invid = 0;
+var invdt = '';
+var vendor = '';
+var pstat = '';
+var result = {};
+var btid = '';
 
 
 function InvoiceDetails() {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleClick = () => {
     navigate('/confirmpay', {
@@ -37,34 +35,34 @@ function InvoiceDetails() {
         invdt: invdt,
         btid: btid,
       }
-    })
-  }
+    });
+  };
 
   const handlePhoneNumber = () => {
     navigate('/phoneNumber')
   }
 
-  var [data, setData] = useState([])
+  var [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData(){
-      result = await getInvoiceItems()
-      inv_total = 0
-      invid = (result[0].invoice_no)
-      invdt = (result[0].invoice_dt)
-      vendor = (result[0].vendor_name)
-      pstat = (result[0].invoice_status)
-      btid = (result[0].bank_transaction_id)
+      result = await getInvoiceItems();
+      inv_total = 0;
+      invid = (result[0].invoice_no);
+      invdt = (result[0].invoice_dt);
+      vendor = (result[0].vendor_name);
+      pstat = (result[0].invoice_status);
+      btid = (result[0].bank_transaction_id);
 
       for (var i =0; i<result.length; i++)
-        inv_total += (result[i].total_cost)
+        inv_total += (result[i].total_cost);
 
-      console.log(invid)
-      setData(result)
+      console.log(invid);
+      setData(result);
 }
-navigate("", { replace: true })
-fetchData()
+navigate("", { replace: true });
+fetchData();
 
-}, [])
+}, []);
 
 return (
 
@@ -120,27 +118,27 @@ return (
 </>
 
   
-)
+);
 }
 
 function ConfirmPay(){
-  const location = useLocation()
-  const invtotal = useLocation().state.invtotal
-  const invid = useLocation().state.invid
-  const pstat = useLocation().state.pstat
-  const vendor = useLocation().state.vendor
-  const invdt = useLocation().state.invdt
+  const location = useLocation();
+  const invtotal = useLocation().state.invtotal;
+  const invid = useLocation().state.invid;
+  const pstat = useLocation().state.pstat;
+  const vendor = useLocation().state.vendor;
+  const invdt = useLocation().state.invdt;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  console.log(invid)
+  console.log(invid);
 
-  // const [acctno, setAcctno] = useState('')
+  // const [acctno, setAcctno] = useState('');
  
-  const routno = '021000021'
-  const acctno = '123456789'
+  const routno = '021000021';
+  const acctno = '123456789';
 
-  console.log('in get Token()', invid, acctno, routno)
+  console.log('in get Token()', invid, acctno, routno);
   
   const clickToPay = () => {
     fetch (`/api/rtpfundtransfer`, {
@@ -151,11 +149,11 @@ function ConfirmPay(){
           'Content-Type': 'application/json'
         },
       "body": JSON.stringify({id: invid, acctno: acctno, routno: routno})
-  })
+  });
 
   setTimeout(() => {
-    navigate("/", { replace: true })
-  }, 2000)
+    navigate("/", { replace: true });
+  }, 2000);
 }
 
   return (
@@ -218,7 +216,7 @@ function ConfirmPay(){
       </div>
     </form>
   </div>
-  )
+  );
 }
 
 
@@ -230,7 +228,7 @@ function Dashboard() {
     { x: 2, y: 20 },
     { x: 3, y: 30 },
     { x: 4, y: 40 },
-  ]
+  ];
 
   return (
     <div>
@@ -241,18 +239,18 @@ function Dashboard() {
         yAxisTitle="Y Value"
       />
     </div>
-  )
+  );
 }
 
 function PhoneNumber(){
   // `value` will be the parsed phone number in E.164 format.
    // Example: "+12133734253".
 const [value, setValue] = useState()
-const navigate = useNavigate()
+const navigate = useNavigate();
 const handleSubmit = () => {
 //make a call to the backend to get the customer records and show that response in the customer table
 
-navigate("/customerIssues", { replace: true })
+navigate("/customerIssues", { replace: true });
 }
 return(
  <>
@@ -283,12 +281,8 @@ function App(){
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
       <Route path="/customerIssues" element={<CustomerIssues/>} />
-      <Route path="/Dealer" element={<Dealer />} />
-      <Route path="/LandingPage" element={<LandingPage />} />
-      <Route path="/Dealer" element={<Dealer />} />
-      <Route path="/LandingPage" element={<LandingPage />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
