@@ -1,6 +1,6 @@
+import React,{ useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './LandingPage.css';
-import React, { useState } from 'react';
-import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
 
 function LandingPage() {
 	const navigate = useNavigate();
@@ -25,7 +25,7 @@ function LandingPage() {
 				</p>
 				<p>
 					<input type="radio" id="type" name="type" value="Cuatomer"/>
-					<label for="html">Cuatomer</label>	
+					<label for="html">Customer</label>	
 				</p>
 
 				<p><button type="submit" onClick={ e => handleSubmit(e)}>Submit</button></p>
@@ -34,4 +34,5 @@ function LandingPage() {
 	)
   
 }
+
 export default LandingPage;

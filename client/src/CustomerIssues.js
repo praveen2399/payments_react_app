@@ -43,7 +43,7 @@ const customers =  [
     }
 ]
 
-class SelectTableComponent extends React.Component {
+class CustomerIssues extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -163,4 +163,4 @@ class SelectTableComponent extends React.Component {
   }
 }
 
-export default SelectTableComponent
+export default CustomerIssues

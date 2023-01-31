@@ -1,7 +1,7 @@
 
 export async function getInvoiceItems(){
-    var res = {};
-    var result = {};
+    let res = {};
+    let result = {};
     console.log('in util.js');
 
     res =  await fetch("/api/getinvoiceitems");
@@ -10,3 +10,14 @@ export async function getInvoiceItems(){
     // setData(result);
     return result;
 }
+
+
+export async function getCustomerIssues(phoneNumber){
+    let res = {}
+    let result = {} 
+
+    res = await fetch(`/api/getCustomerIssues/?phoneNumber=${phoneNumber}`)
+    result = await res.json()
+    return result;
+}
+
