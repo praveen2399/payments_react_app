@@ -12,7 +12,6 @@ import LandingPage from './LandingPage'
 import Dealer from './Dealer'
 import './usb.css';
 import { getInvoiceItems } from './util.js';
-import LandingPage from './LandingPage.jsx';
 
 var inv_total = 0;
 var invid = 0;
@@ -295,14 +294,9 @@ function App(){
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
-<<<<<<< HEAD
-      <Route path="/customerIssues" element={<SelectTableComponent/>} />
-      <Route path="/landing" element={<LandingPage/>} />
-=======
       <Route path="/customerIssues" element={<CustomerIssues/>} />
       <Route path="/landing" element={<LandingPage/>} />
       <Route path="/dealer" element={<Dealer/>} />
->>>>>>> 33b7c87a155e6eb14f80bcab69d6de354461348c
     </Routes>
   );
 }
