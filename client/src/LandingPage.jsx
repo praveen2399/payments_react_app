@@ -11,9 +11,9 @@ function LandingPage() {
 	}
 	const handleSubmit = () => {
 		if(type==='Dealer') {
-			navigate('/Dealer')
+			navigate('/dealer')
 		} else {
-			navigate('/Customer')
+			navigate('/customer')
 		}
 	}
 	return (
@@ -24,7 +24,7 @@ function LandingPage() {
 					<label for="html">Dealer</label>	
 				</p>
 				<p>
-					<input type="radio" id="type" name="type" value="Cuatomer"/>
+					<input type="radio" id="type" name="type" value="Customer"/>
 					<label for="html">Customer</label>	
 				</p>
 

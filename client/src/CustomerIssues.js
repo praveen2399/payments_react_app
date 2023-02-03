@@ -53,6 +53,20 @@ class CustomerIssues extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.loadIssues(this.state.phoneNumber)
+  }
+
+  loadIssues (phoneNumber) {
+    fetch(`/api/issues/${phoneNumber}`, {
+      method: 'GET',
+      headers: new Headers({ Accept: "application/json"})
+    })
+    .then(res => res.json())
+    .then(response => this.setState({List: response}))
+    .catch(e => console.log(e))
+  }
+
   // Select/ UnSelect Table rows
   onMasterCheck(e) {
     let tempList = this.state.List

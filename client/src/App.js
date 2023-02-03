@@ -263,7 +263,7 @@ const [value, setValue] = useState()
 const navigate = useNavigate();
 const handleSubmit = () => {
 //make a call to the backend to get the customer records and show that response in the customer table
-
+console.log("phone num", value)
 navigate("/customerIssues", { replace: true });
 }
 return(
@@ -279,7 +279,8 @@ return(
     value={value}
     onChange={setValue}
     error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
-<Button onClick={handleSubmit}>Submit</Button>    
+<Button onClick={handleSubmit}>Submit</Button>  
+<p>{value}</p>
 </> )
  } 
 
@@ -290,12 +291,11 @@ function customerIssues(){
 function App(){
   return(
     <Routes>
-      <Route path="/" element={<InvoiceDetails />} exact/>
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/phoneNumber" element={<PhoneNumber />} />
       <Route path="/customerIssues" element={<CustomerIssues/>} />
-      <Route path="/landing" element={<LandingPage/>} />
+      <Route path="/" element={<LandingPage/>} />
       <Route path="/dealer" element={<Dealer/>} />
     </Routes>
   );

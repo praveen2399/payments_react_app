@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
 
 function Dealer() {
-	const [formValues, setFormValues] = useState([{ issue: "", seviority : "high", amount: ""}])
+	const [formValues, setFormValues] = useState([{ issue: "", severity : "high", amount: ""}])
 	const [phoneNumber, setPhoneNumber] = useState()
 
     let handleChange = (i, e) => {
@@ -20,7 +20,7 @@ function Dealer() {
 			setPhoneNumber(e.target.value)	
 		}
     let addFormFields = () => {
-        setFormValues([...formValues, { issue: "", seviority : "high", amount: "" }])
+        setFormValues([...formValues, { issue: "", severity : "high", amount: "" }])
       }
     
     let removeFormFields = (i) => {
@@ -40,7 +40,7 @@ function Dealer() {
 				<form  onSubmit={handleSubmit}>
 				<div className='center'>
 					<label>Phone Number</label>
-					<input className='phone-number' type="text" name="phonenumber" value='nae' onChange={e => handleChangePhone(e)}/>
+					<input className='phone-number' type="text" name="phonenumber" value='' onChange={e => handleChangePhone(e)}/>
 				</div>
 				<table>
 				{formValues.map((element, index) => (
@@ -51,11 +51,11 @@ function Dealer() {
 							<input className='issue' type="text" name="issue" value={element.issue || ""} onChange={e => handleChange(index, e)} />
 						</td>
 						<td>
-							<p><label>Seviority </label></p>
-							<select name="seviority" value={element.seviority || "high"} onChange={e => handleChange(index, e)}> 
-                  <option value='high' name="seviority"> high</option>
-									<option value= "medium" name="seviority">medium</option>
-                  <option value="low" name="seviority">low</option>
+							<p><label>Severity </label></p>
+							<select name="severity" value={element.severity || "high"} onChange={e => handleChange(index, e)}> 
+                  <option value='high' name="severity"> high</option>
+									<option value= "medium" name="severity">medium</option>
+                  <option value="low" name="severity">low</option>
               </select>
 						</td>
 						<td>
@@ -74,7 +74,7 @@ function Dealer() {
 				))}
 				</table>
 				<div className="button-section center" >
-				<button className="button add" type="button" onClick={() => addFormFields()}>Add Issues</button>
+				<button className="button add" type="button" onClick={() => addFormFields()}>Add Issue</button>
 				<button className="button submit" type="submit">Submit</button>
 				</div>
 			</form>

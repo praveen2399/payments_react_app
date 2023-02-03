@@ -54,9 +54,9 @@ app.post('/api/rtpfundtransfer',  async (req, res) => {
   try{
     
     console.log("api/rtpfundtransfer");
-    var invid = req.body.id;
-    var acctno = req.body.acctno;
-    var routno = req.body.routno;
+    let invid = req.body.id;
+    let acctno = req.body.acctno;
+    let routno = req.body.routno;
     console.log(invid, acctno, routno);
     const bankRTPRes = await rtpFundTransfer(invid, acctno, routno);
     res.send(bankRTPRes);
@@ -69,7 +69,7 @@ app.post('/api/rtpfundtransfer',  async (req, res) => {
 });
 
 app.get('/api/issues', async (req, res) => {
-  var result = [];
+  let result = [];
   try{
 
     await Database.open('falconDB/falconDb')
@@ -90,7 +90,7 @@ app.get('/api/issues', async (req, res) => {
 })
 
 app.post('/api/issues', async (req, res) => {
-    var result = [];
+    let result = [];
     const data = req.body;
     let responseList = [];
     try{
@@ -137,7 +137,7 @@ app.post('/api/issues', async (req, res) => {
 
 app.get('/api/issues/:id', async (req, res) => {
     let id = req.params.id;
-    var result = [];
+    let result = [];
     try{
   
       await Database.open('falconDB/falconDb')
@@ -158,7 +158,7 @@ app.get('/api/issues/:id', async (req, res) => {
   })
 
 app.get('/api/issues/customer/:custid', async (req, res) => {
-    var result = [];
+    let result = [];
     let custid = req.params.custid;
     try{
   
@@ -181,7 +181,7 @@ app.get('/api/issues/customer/:custid', async (req, res) => {
 
   
   app.patch('/api/issues', async (req, res) => {
-    var result = [];
+    let result = [];
     const data = req.body;
     try{
   
@@ -215,7 +215,7 @@ app.get('/api/issues/customer/:custid', async (req, res) => {
 
 
 app.get('/api/getinvoiceitems', async (req, res) => {
-  var result = [];
+  let result = [];
   try{
 
     await Database.open('falconDB/falconDb')
