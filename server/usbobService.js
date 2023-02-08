@@ -9,7 +9,7 @@ var env_vars = dotenv.config();
 var api_key = env_vars.parsed['KEY'];
 var api_secret = env_vars.parsed['SECRET'];
 
-var br_token  = btoa(api_key + ':' + api_secret);
+// var br_token  = btoa(api_key + ':' + api_secret);
 
 const ftCache = {};
 export async function rtpFundTransfer(invid, acctno, routno){
@@ -24,7 +24,7 @@ export async function rtpFundTransfer(invid, acctno, routno){
                 .headers({
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic '+ br_token
+                // 'Authorization': 'Basic '+ br_token
                 })
                 .send('grant_type=client_credentials')
                 .end(function (response) { 

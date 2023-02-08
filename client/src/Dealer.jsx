@@ -3,20 +3,16 @@ import React, { useState } from 'react';
 import { HashRouter as Router, Routes, useLocation, Redirect, Route, useNavigate } from "react-router-dom";
 
 function Dealer() {
-	const [formValues, setFormValues] = useState([{ issue: "", severity : "high", amount: ""}])
+	const [formValues, setFormValues] = useState([{ issue: "", seviority : "high", amount: ""}])
 	const [phoneNumber, setPhoneNumber] = useState()
 
     let handleChange = (i, e) => {
-			console.log('eeeeeeeee', e)
         let newFormValues = [...formValues];
-				console.log('eeeeeeeee',e.target.name)
-				console.log('eeeeeeeee',e.target.value)
         newFormValues[i][e.target.name] = e.target.value;
         setFormValues(newFormValues);
       }
     
-		let handleChangePhone = (e) => {
-			console.log('e.target.value', e.target.value)
+	let handleChangePhone = (e) => {
 			setPhoneNumber(e.target.value)	
 		}
     let addFormFields = () => {
@@ -31,7 +27,19 @@ function Dealer() {
     
     let handleSubmit = (event) => {
         event.preventDefault();
-        alert(JSON.stringify(formValues));
+		const data = formValues.map(values => ({...values, custid: phoneNumber}));
+		console.log('formValues', data);
+		fetch('/api/issues', {
+			method: 'POST',
+			body: JSON.stringify({data})
+		  })
+			 .then((response) => response.json())
+			 .then((data) => {
+				console.log(data);
+			 })
+			 .catch((err) => {
+				console.log(err.message);
+			 });
     }
 
     return (
@@ -40,7 +48,7 @@ function Dealer() {
 				<form  onSubmit={handleSubmit}>
 				<div className='center'>
 					<label>Phone Number</label>
-					<input className='phone-number' type="text" name="phonenumber" value='' onChange={e => handleChangePhone(e)}/>
+					<input className='phone-number' type="text" name="phonenumber" value={phoneNumber} onChange={e => handleChangePhone(e)}/>
 				</div>
 				<table>
 				{formValues.map((element, index) => (
