@@ -293,7 +293,7 @@ function App(){
     <Routes>
       <Route path="/confirmpay" element={<ConfirmPay />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/phoneNumber" element={<PhoneNumber />} />
+      <Route path="/customer" element={<PhoneNumber />} />
       <Route path="/customerIssues" element={<CustomerIssues/>} />
       <Route path="/" element={<LandingPage/>} />
       <Route path="/dealer" element={<Dealer/>} />
